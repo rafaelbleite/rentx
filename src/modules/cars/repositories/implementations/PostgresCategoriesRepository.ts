@@ -1,13 +1,13 @@
-import { Category } from "../models/Category";
+import { Category } from '../entities/Category';
 import {
   ICategoriesRepository,
   ICreateCategoryDTO,
-} from "./ICategoriesRepository";
+} from './ICategoriesRepository';
 
 class PostgresCategoriesRepository implements ICategoriesRepository {
   findByName(name: string): Category {
     console.log(name);
-    throw new Error("Method not implemented.");
+    throw new Error('Method not implemented.');
   }
   list(): Category[] {
     return null;
