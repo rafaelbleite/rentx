@@ -13,8 +13,7 @@ services:
       - POSTGRES_DB=rentx
     volumes:
       - pgdata:/data/postgres
-    networks: 
-      - backend
+    
   app: 
     build: .
     container_name: rentx_app
@@ -22,15 +21,11 @@ services:
       - 3333:3333
     volumes:
       - .:/usr/app
-    networks: 
-      - backend
     links:
-      - "database_ignite:database"
-
+      - database_ignite
+    depends_on: 
+      - database_ignite
+    
 volumes:
   pgdata:
     driver: local
-  
-networks: 
-  backend:
-    driver: bridge
