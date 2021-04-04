@@ -1,10 +1,10 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export class CreateUsers1617064808258 implements MigrationInterface {
+export class CreateCars1617458832655 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'users',
+        name: 'cars',
         columns: [
           {
             name: 'id',
@@ -16,26 +16,34 @@ export class CreateUsers1617064808258 implements MigrationInterface {
             type: 'varchar',
           },
           {
-            name: 'username',
+            name: 'description',
             type: 'varchar',
           },
           {
-            name: 'password',
-            type: 'varchar',
+            name: 'daily_rate',
+            type: 'numeric',
           },
           {
-            name: 'email',
-            type: 'varchar',
-            isUnique: true,
-          },
-          {
-            name: 'driver_licence',
-            type: 'varchar',
-          },
-          {
-            name: 'admin',
+            name: 'available',
             type: 'boolean',
-            default: false,
+            default: true,
+          },
+          {
+            name: 'licence_plate',
+            type: 'varchar',
+          },
+          {
+            name: 'fine_amount',
+            type: 'numeric',
+          },
+          {
+            name: 'brand',
+            type: 'varchar',
+          },
+          {
+            name: 'category_id',
+            type: 'uuid',
+            isNullable: true,
           },
           {
             name: 'created_at',
@@ -48,11 +56,21 @@ export class CreateUsers1617064808258 implements MigrationInterface {
             default: 'now()',
           },
         ],
+        foreignKeys: [
+          {
+            name: 'FK_Category_Car',
+            referencedTableName: 'categories',
+            referencedColumnNames: ['id'],
+            columnNames: ['category_id'],
+            onDelete: 'SET NULL',
+            onUpdate: 'SET NULL',
+          },
+        ],
       }),
     );
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('users');
+    await queryRunner.dropTable('cars');
   }
 }
