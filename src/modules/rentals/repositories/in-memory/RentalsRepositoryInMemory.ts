@@ -1,5 +1,5 @@
-import { ICreateRentalDTO } from '@modules/reantals/dtos/ICreateRentalDTO';
-import { Rental } from '@modules/reantals/infra/typeorm/entities/Rental';
+import { ICreateRentalDTO } from '@modules/rentals/dtos/ICreateRentalDTO';
+import { Rental } from '@modules/rentals/infra/typeorm/entities/Rental';
 
 import { IRentalsRepository } from '../IRentalsRepository';
 

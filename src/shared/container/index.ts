@@ -8,8 +8,8 @@ import { ICarsImagesRepository } from '@modules/cars/repositories/ICarsImagesRep
 import { ICarsRepository } from '@modules/cars/repositories/ICarsRepository';
 import { ICategoriesRepository } from '@modules/cars/repositories/ICategoriesRepository';
 import { ISpecificationsRepository } from '@modules/cars/repositories/ISpecificationsRepository';
-import { RentalsRepository } from '@modules/reantals/infra/typeorm/repositories/RentalsRepository';
-import { IRentalsRepository } from '@modules/reantals/repositories/IRentalsRepository';
+import { RentalsRepository } from '@modules/rentals/infra/typeorm/repositories/RentalsRepository';
+import { IRentalsRepository } from '@modules/rentals/repositories/IRentalsRepository';
 import { container } from 'tsyringe';
 import '@shared/container/providers';
 
